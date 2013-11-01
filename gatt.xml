@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<configuration>
+
+    <!-- 1800: org.bluetooth.service.generic_access -->
+    <service uuid="1800" id="generic_access">
+        <description>Generic Access</description>
+
+        <!-- 2A00: org.bluetooth.characteristic.gap.device_name -->
+        <characteristic uuid="2A00" id="xgatt_device_name">
+            <description>Device Name</description>
+            <properties read="true" const="true" />
+            <!-- It's a good idea to keep this <= 19 characters, for proper display on iOS -->
+            <value>iBeacon Dongle</value>
+        </characteristic>
+        
+    </service>
+
+    <!-- 180A: org.bluetooth.service.device_information -->
+    <service uuid="180A" id="device_information">
+        <description>Device Information</description>
+    
+        <!-- 2A29: org.bluetooth.characteristic.manufacturer_name_string -->
+        <characteristic uuid="2A29" id="c_manufacturer_name">
+            <description>Manufacturer Name</description>
+            <properties read="true" const="true" />
+            <value>Bluegiga</value>
+        </characteristic>
+
+        <!-- 2A24: org.bluetooth.characteristic.model_number_string -->
+        <characteristic uuid="2A24" id="c_model_number">
+            <description>Model Number</description>
+            <properties read="true" const="true" />
+            <value>BLED112</value>
+        </characteristic>
+        
+    </service>
+
+    <!-- custom service for allowing DFU-mode reboots -->
+    <service uuid="4f3edfe7-6f17-4f87-b2ee-ea2cdac0dd02">
+        <description>DFU Reboot Service</description>
+        
+        <!-- custom characteristic for allowing DFU-mode reboots -->
+        <characteristic uuid="590c4bd9-b5e2-4a1a-867e-9b033ed1eadb" id="c_dfu_reboot_trigger">
+            <description>DFU Reboot Trigger</description>
+            <properties write="true" />
+            <value length="1" />
+        </characteristic>
+        
+    </service>
+    
+    </configuration>

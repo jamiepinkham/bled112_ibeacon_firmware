@@ -1,0 +1,4 @@
+xgatt_device_name 3
+c_manufacturer_name 7
+c_model_number 10
+c_dfu_reboot_trigger 14
